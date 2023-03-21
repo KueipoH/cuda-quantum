@@ -355,18 +355,10 @@ target.</p>
 <p>If you would like a temporary container, pass <code class="code docutils literal notranslate"><span class="pre">--rm</span></code>. This will delete your
 container upon exit.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you leave the container and did not specify <code class="code docutils literal notranslate"><span class="pre">--rm</span></code>, you
-can always get back in with <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">cuda-quantum</span> <span class="pre">bash</span></code>.</p>
-</div>
 <p>You can stop and exit the container by typing the command <code class="code docutils literal notranslate"><span class="pre">exit</span></code>. If you did not specify
-<code class="code docutils literal notranslate"><span class="pre">--rm</span></code>, the container and any changes you made in it still exist. You can get back to it using
-the command <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">start</span> <span class="pre">-i</span> <span class="pre">cuda-quantum</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can delete an existing container and any changes you made using <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">-v</span> <span class="pre">cuda-quantum</span></code>.</p>
-</div>
+<code class="code docutils literal notranslate"><span class="pre">--rm</span></code>, the container still exists as well as any changes you made in it. You can get back to it using
+the command <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">start</span> <span class="pre">-i</span> <span class="pre">cuda-quantum</span></code>.
+You can delete an existing container and any changes you made using <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">-v</span> <span class="pre">cuda-quantum</span></code>.</p>
 </section>
 <section id="use-cuda-quantum-in-vs-code">
 <h3>Use CUDA Quantum in VS Code<a class="headerlink" href="#use-cuda-quantum-in-vs-code" title="Permalink to this heading">¶</a></h3>
@@ -376,11 +368,12 @@ To do so, install the <a class="reference external" href="https://marketplace.vi
 <p>Follow the steps <a class="reference internal" href="#use-cuda-quantum-in-terminal"><span class="std std-ref">above</span></a> to start the container.
 Open VS Code and navigate to the Remote Explorer. You should see the running cuda-quantum dev container listed there.</p>
 <img alt="_images/attachToDevContainer.png" src="_images/attachToDevContainer.png" />
-<p>Click on <code class="code docutils literal notranslate"><span class="pre">Attach</span> <span class="pre">to</span> <span class="pre">Container</span></code>. A new VS Code instance will open in that container. To open a terminal,
-go to the Terminal menu and select <code class="code docutils literal notranslate"><span class="pre">New</span> <span class="pre">Terminal</span></code>.</p>
+<p>Click on <code class="code docutils literal notranslate"><span class="pre">Attach</span> <span class="pre">to</span> <span class="pre">Container</span></code>. A new VS Code instance will open in that container. Open the <code class="code docutils literal notranslate"><span class="pre">/home/cudaq</span></code>
+folder to see the README and the CUDA Quantum examples that are included in the container. To run the examples,
+open a terminal by going to the Terminal menu and select <code class="code docutils literal notranslate"><span class="pre">New</span> <span class="pre">Terminal</span></code>.</p>
 <img alt="_images/openTerminal.png" src="_images/openTerminal.png" />
-<p>You can now get to work compiling the example
-codes with the <code class="code docutils literal notranslate"><span class="pre">nvq++</span></code> compiler, which is installed in your <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<p>You can now compile and run the C++ examples using the <code class="code docutils literal notranslate"><span class="pre">nvq++</span></code> compiler, which is installed in your <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>,
+or run the Python examples using the Python interpreter.</p>
 <img alt="_images/getToWork.png" src="_images/getToWork.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
