@@ -94,8 +94,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">   Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#docker-image">Docker Image</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../install.html#install-the-public-beta-docker-image">Install the Public Beta Docker Image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../install.html#create-the-container-in-headless-mode">Create the Container in Headless Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../install.html#run-the-container-via-vscode-in-a-web-browser">Run the Container via VSCode in a Web Browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#use-cuda-quantum-in-a-terminal">Use CUDA Quantum in a Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install.html#use-cuda-quantum-in-vs-code">Use CUDA Quantum in VS Code</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#build-cuda-quantum-from-source">Build CUDA Quantum from Source</a><ul>
@@ -122,12 +122,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advanced.html">   Advanced Topics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="advanced/noise.html">Noise Modeling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="advanced/noise.html#design">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="advanced/noise.html#c-example">C++ Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="advanced/noise.html#python-example">Python Example</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="advanced/nvqir_simulator.html">Create a new NVQIR Simulator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="advanced/nvqir_simulator.html#circuitsimulator">CircuitSimulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advanced/nvqir_simulator.html#let-s-see-this-in-action">Let’s see this in action</a></li>
@@ -164,10 +158,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="simulators.html#tensor-network-simulators">Tensor Network Simulators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="simulators.html#id1">cuQuantum multi-node multi-GPU</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="simulators.html#density-matrix-simulators">Density Matrix Simulators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="simulators.html#id2">OpenMP CPU-only</a></li>
 </ul>
 </li>
 </ul>
@@ -326,7 +316,7 @@ simple “Hello World” example, specifically a CUDA Quantum kernel that prepar
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cudaq.h&gt;</span>
 
-<span class="c1">// Define a CUDAQ kernel that is fully specified</span>
+<span class="c1">// Define a CUDA Quantum kernel that is fully specified</span>
 <span class="c1">// at compile time via templates.</span>
 <span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">ghz</span><span class="w"> </span><span class="p">{</span>
@@ -437,7 +427,7 @@ by another pre-defined CUDA Quantum kernel expression. Let’s take a look at th
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cudaq/algorithm.h&gt;</span>
 
 <span class="c1">// Here we demonstrate how one might apply multi-controlled</span>
-<span class="c1">// operations on a general CUDAQ kernel.</span>
+<span class="c1">// operations on a general CUDA Quantum kernel.</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">ApplyX</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">cudaq</span><span class="o">::</span><span class="n">qubit</span><span class="w"> </span><span class="o">&amp;</span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="n">__qpu__</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">q</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 <span class="p">};</span>

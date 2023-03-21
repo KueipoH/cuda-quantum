@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="CUDA Quantum and CMake" href="cmake_app.html" />
-    <link rel="prev" title="Noise Modeling with CUDA Quantum" href="noise.html" /> 
+    <link rel="prev" title="Advanced CUDA Quantum Topics" href="../advanced.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -94,8 +94,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">   Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../install.html#docker-image">Docker Image</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../install.html#install-the-public-beta-docker-image">Install the Public Beta Docker Image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../install.html#create-the-container-in-headless-mode">Create the Container in Headless Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../install.html#run-the-container-via-vscode-in-a-web-browser">Run the Container via VSCode in a Web Browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../install.html#use-cuda-quantum-in-a-terminal">Use CUDA Quantum in a Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../install.html#use-cuda-quantum-in-vs-code">Use CUDA Quantum in VS Code</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../install.html#build-cuda-quantum-from-source">Build CUDA Quantum from Source</a><ul>
@@ -122,12 +122,6 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../advanced.html">   Advanced Topics</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="noise.html">Noise Modeling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="noise.html#design">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="noise.html#c-example">C++ Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="noise.html#python-example">Python Example</a></li>
-</ul>
-</li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Create a new NVQIR Simulator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#circuitsimulator">CircuitSimulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#let-s-see-this-in-action">Let’s see this in action</a></li>
@@ -164,10 +158,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../simulators.html#tensor-network-simulators">Tensor Network Simulators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../simulators.html#id1">cuQuantum multi-node multi-GPU</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../simulators.html#density-matrix-simulators">Density Matrix Simulators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../simulators.html#id2">OpenMP CPU-only</a></li>
 </ul>
 </li>
 </ul>
@@ -397,8 +387,8 @@ contains the following contents</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">NVQIR_SIMULATION_BACKEND</span><span class="o">=</span><span class="s2">&quot;NAME&quot;</span>
 </pre></div>
 </div>
-<p>The library must be installed in <code class="code docutils literal notranslate"><span class="pre">CUDAQ_INSTALL/lib</span></code> and the configuration file
-must be installed to <code class="code docutils literal notranslate"><span class="pre">CUDAQ_INSTALL/platforms</span></code>.</p>
+<p>The library must be installed in <code class="code docutils literal notranslate"><span class="pre">$CUDA_QUANTUM_PATH/lib</span></code> and the configuration file
+must be installed to <code class="code docutils literal notranslate"><span class="pre">$CUDA_QUANTUM_PATH/platforms</span></code>.</p>
 </section>
 <section id="let-s-see-this-in-action">
 <h2>Let’s see this in action<a class="headerlink" href="#let-s-see-this-in-action" title="Permalink to this heading">¶</a></h2>
@@ -492,7 +482,7 @@ repository for this code called <code class="code docutils literal notranslate">
 </div>
 <p>To build, install, and use this simulation backend, run the following from the top-level of <code class="code docutils literal notranslate"><span class="pre">my-simulator</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span>Ninja<span class="w"> </span>-DNVQIR_DIR<span class="o">=</span><span class="nv">$CUDAQ_INSTALL</span>/lib/cmake/nvqir
+cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span>Ninja<span class="w"> </span>-DNVQIR_DIR<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CUDA_QUANTUM_PATH</span><span class="s2">/lib/cmake/nvqir&quot;</span>
 ninja<span class="w"> </span>install
 </pre></div>
 </div>
@@ -508,7 +498,7 @@ ninja<span class="w"> </span>install
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="noise.html" class="btn btn-neutral float-left" title="Noise Modeling with CUDA Quantum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../advanced.html" class="btn btn-neutral float-left" title="Advanced CUDA Quantum Topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="cmake_app.html" class="btn btn-neutral float-right" title="CUDA Quantum and CMake" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

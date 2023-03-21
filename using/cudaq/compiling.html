@@ -94,8 +94,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">   Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../install.html#docker-image">Docker Image</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../install.html#install-the-public-beta-docker-image">Install the Public Beta Docker Image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../install.html#create-the-container-in-headless-mode">Create the Container in Headless Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../install.html#run-the-container-via-vscode-in-a-web-browser">Run the Container via VSCode in a Web Browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../install.html#use-cuda-quantum-in-a-terminal">Use CUDA Quantum in a Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../install.html#use-cuda-quantum-in-vs-code">Use CUDA Quantum in VS Code</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../install.html#build-cuda-quantum-from-source">Build CUDA Quantum from Source</a><ul>
@@ -122,12 +122,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced.html">   Advanced Topics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../advanced/noise.html">Noise Modeling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../advanced/noise.html#design">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../advanced/noise.html#c-example">C++ Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../advanced/noise.html#python-example">Python Example</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/nvqir_simulator.html">Create a new NVQIR Simulator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../advanced/nvqir_simulator.html#circuitsimulator">CircuitSimulator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../advanced/nvqir_simulator.html#let-s-see-this-in-action">Let’s see this in action</a></li>
@@ -164,10 +158,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../simulators.html#tensor-network-simulators">Tensor Network Simulators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../simulators.html#id1">cuQuantum multi-node multi-GPU</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../simulators.html#density-matrix-simulators">Density Matrix Simulators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../simulators.html#id2">OpenMP CPU-only</a></li>
 </ul>
 </li>
 </ul>
@@ -337,7 +327,7 @@ a similar manner as classical C++ compilers:</p>
 <p>The <code class="code docutils literal notranslate"><span class="pre">cuquantum</span></code> target QPU will configure the executable to run
 on GPU-enabled simulation resources accelerated by cuQuantum.</p>
 <p>This simple compiler invocation orchestrates a complex workflow that incorporates
-a number of tools (available in your <code class="code docutils literal notranslate"><span class="pre">CUDAQ_INSTALL/bin</span></code> directory).</p>
+a number of tools (available in your <code class="code docutils literal notranslate"><span class="pre">$CUDA_QUANTUM_PATH/bin</span></code> directory).</p>
 <ol class="arabic simple">
 <li><p>Map CUDA Quantum C++ kernels to Quake MLIR code via Clang ASTConsumers</p></li>
 <li><p>Register all Quake kernel code with the runtime for quantum IR introspection</p></li>
