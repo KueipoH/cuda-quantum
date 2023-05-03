@@ -1,7 +1,7 @@
 # Welcome to the CUDA Quantum repository
 
 <img align="right" width="200"
-src="https://developer.nvidia.com/sites/default/files/akamai/nvidia-cuquantum-icon.svg"
+src="https://labs.openai.com/e/jEhTAnueir9PX7wiWX9xQYWT"
 />
 
 The CUDA Quantum Platform for hybrid quantum-classical computers enables
